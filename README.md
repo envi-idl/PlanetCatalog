@@ -5,6 +5,7 @@ This code is meant to be used to search and explored Planet Labs' catalog of Pla
 ## Requirements
 
 ENVI 5.3 and IDL 8.5 or newer
+
 API key to access Planet Labs' data
 
 
@@ -19,6 +20,7 @@ There are two different installation options depending on the software that you 
 If you have ENVI + IDL, then you can either:
 
 1. Place the IDL code directly in ENVI's extension folder. This work's ONLY when you start ENVI + IDL at the same time so that ENVI can compile code on the fly.
+
 2. Build an IDL SAVE file and place that in ENVI's extension folder. This works with or without IDL.
 
 To build the save file you can see the section `Building the SAVE file (requires IDL)` below. The next section `Only ENVI` lists the locations where the SAVE file should be installed so that ENVI is aware of the extension.
@@ -35,7 +37,7 @@ For ENVI 5.4 and admin rights the directory for Windows is `C:\Program Files\Har
 
 If you do not have admin rights then you can find the local user directory in ENVI under:
 
-    **File -> Preferences -> Directories -> Extensions Directory**
+**File -> Preferences -> Directories -> Extensions Directory**
 
 Once you place the file in ENVI's extensions you **must restart ENVI** before you will see the new tool in ENVI's toolbox.
 
@@ -46,8 +48,12 @@ Once you place the file in ENVI's extensions you **must restart ENVI** before yo
 To build an IDL SAVE file for a custom version of ENVI / IDL you need to issue the following commands in IDL:
 
 1. Press the "Reset" button in the IDL Workbench
-2. Press the "Compile" button in the IDL workbench
-3. Issue the following commands from IDL to save the pre-compiled code to disk:
+
+2. Open `planetcatalog.pro` in the IDL workbench and make sure it has keyboard focus in the editor.
+
+3. Press the "Compile" button in the IDL workbench
+
+4. Issue the following commands from IDL to save the pre-compiled code to disk:
 
     ```idl
     save, /ROUTINES, FILENAME = 'planetcatalog.sav'
