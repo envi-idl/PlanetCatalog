@@ -551,14 +551,14 @@ function GetPlanetImage, feature, OUTPUT_FOLDER=output_folder, APIKEY=apikey, CB
   maintags = TAG_NAMES(assetsData)
 
   case 1 of
-    (where(maintags eq 'ANALYTIC_DN')) ne -1:begin
+    (where(maintags eq 'ANALYTIC')) ne -1:begin
       ;      ans = dialog_message('Analytic Asset not available, download Analytic DN instead?', /QUESTION)
       ;      if (ans eq 'Yes') then begin
-      tags = TAG_NAMES(assetsData.ANALYTIC_DN)
+      tags = TAG_NAMES(assetsData.ANALYTIC)
 
       if (where(tags eq 'LOCATION') ne -1) then begin
         ;DOWNLOAD
-        fullLinkURL = assetsData.ANALYTIC_DN.LOCATION[0]
+        fullLinkURL = assetsData.ANALYTIC.LOCATION[0]
         HEADERBasicAuth='Authorization: Basic '+IDL_BASE64([byte(APIKey),byte(':')])
         HEADERAPIKey='Authorization: api-key '+APIKey
 
@@ -630,7 +630,7 @@ function GetPlanetImage, feature, OUTPUT_FOLDER=output_folder, APIKEY=apikey, CB
             SSL_VERIFY_PEER=0, $
             HEADER=headers)
           blankData = ''
-          data = oURL->Put(blankData,URL=assetsData.ANALYTIC_DN._LINKS.ACTIVATE[0],/BUFFER, /POST)
+          data = oURL->Put(blankData,URL=assetsData.ANALYTIC._LINKS.ACTIVATE[0],/BUFFER, /POST)
 
           a=dialog_message('Asset requested to be activated, try again soon.', /INFORMATION)
           return, !NULL
