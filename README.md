@@ -2,6 +2,8 @@
 
 This code is meant to be used to search and explored Planet Labs' catalog of PlanetScope 4 band datasets. The data is uncalibrated and in it's raw state when downloaded with only an ENVI header file being added that contains the band information associated with the data. 
 
+**Note that this extension needs a PLanet Labs' API key to access the data. The key that you have may not work in all regions of the world or for the data products that are downloaded by the extension. Make sure to check with Planet Labs' for any issues that you may be having due to API keys.**
+
 ## Requirements
 
 ENVI 5.3 and IDL 8.5 or newer
